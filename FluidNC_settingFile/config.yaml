@@ -1,0 +1,50 @@
+name: "esp32_FluidNC_Axis_Squaring"
+board: "esp32_FluidNC_Axis_Squaring"
+
+stepping:
+  engine: RMT
+  idle_ms: 255
+  dir_delay_us: 10
+  pulse_us: 10
+  disable_delay_us: 10
+
+axes:
+  shared_stepper_disable_pin: gpio.5:high
+  
+  x:
+    #max_rate_mm_per_min < ( 1000000 / ((2 * pulse_us) + dir_delay_us) )*60 / steps_per_mm
+    #100kHz > (steps_per_mm * (max_rate_mm_per_min) / 60)
+    steps_per_mm: 40
+    max_rate_mm_per_min: 3000
+    acceleration_mm_per_sec2: 25
+    max_travel_mm: 250
+    homing:
+      cycle: 2
+      mpos_mm: 0
+      positive_direction: false
+      seek_mm_per_min: 1000
+      feed_mm_per_min: 500
+    
+    motor0:
+      limit_neg_pin: gpio.35:low
+      hard_limits: true
+      pulloff_mm: 20.000
+      standard_stepper:
+        step_pin: gpio.26:low
+        direction_pin: gpio.27:high
+    motor1:
+      limit_neg_pin: gpio.34:low
+      hard_limits: true
+      pulloff_mm: 20.000
+      standard_stepper:
+        step_pin: gpio.33:low
+        direction_pin: gpio.25:high
+
+user_outputs:
+  analog0_pin: gpio.2
+  analog1_pin: gpio.4
+  analog0_hz: 5000
+  analog1_hz: 5000
+
+#space and lf
+   
