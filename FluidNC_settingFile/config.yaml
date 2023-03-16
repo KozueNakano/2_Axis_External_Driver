@@ -16,8 +16,10 @@ axes:
     #100kHz > (steps_per_mm * (max_rate_mm_per_min) / 60)
     steps_per_mm: 40
     max_rate_mm_per_min: 3000
-    acceleration_mm_per_sec2: 25
-    max_travel_mm: 250
+    acceleration_mm_per_sec2: 50
+    max_travel_mm: 850
+    hard_limits: true
+    soft_limits: true
     homing:
       cycle: 2
       mpos_mm: 0
@@ -27,14 +29,12 @@ axes:
     
     motor0:
       limit_neg_pin: gpio.35:low
-      hard_limits: true
       pulloff_mm: 20.000
       standard_stepper:
         step_pin: gpio.26:low
         direction_pin: gpio.27:high
     motor1:
       limit_neg_pin: gpio.34:low
-      hard_limits: true
       pulloff_mm: 20.000
       standard_stepper:
         step_pin: gpio.33:low
