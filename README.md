@@ -6,6 +6,7 @@ FluidNC Controller for External Stepper Drivers
 
 
 - This controller runs FluidNC firmware.
+[http://wiki.fluidnc.com/](http://wiki.fluidnc.com/)
 
 #### Features
 - Can power (2) external opto isolated stepper drivers with a strong 5V signal
